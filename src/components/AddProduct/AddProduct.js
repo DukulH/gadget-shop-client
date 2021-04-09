@@ -1,7 +1,7 @@
 import { faCloudUploadAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, {useState } from 'react';
 import { useForm } from "react-hook-form";
 import { useHistory } from 'react-router';
 import SideBar from '../SideBar/SideBar';
