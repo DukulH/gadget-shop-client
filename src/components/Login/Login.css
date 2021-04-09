@@ -1,0 +1,38 @@
+.position{
+	padding: 15vh;
+}
+form{
+	background: #fff;
+    border: 1px solid #ABABAB;
+}
+.form-container{
+	border-radius: 10px;
+	padding: 50px;
+}
+.design{
+	width: 40%; 
+	border-bottom: 1px solid lightgray; 
+	line-height: 0.1em;
+	margin: auto;
+}
+ 
+.design span { 
+background:#fff; 
+padding:0 10px; 
+}
+.otherSignInMethod{
+width: 100%;
+border-radius: 25px;
+display: flex;  
+align-items: center;
+justify-content: center;
+}
+.icon{
+margin-right: auto;
+font-size:30px;
+color: brown;
+}
+
+.otherSignInMethod span{
+margin-right: auto;
+}

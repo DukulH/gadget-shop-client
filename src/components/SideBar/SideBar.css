@@ -1,0 +1,53 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+.sidebar {
+  margin: 0;
+  padding: 0;
+  width: 250px;
+  background-color: #203D37;
+  position: fixed;
+  text-align: center;
+  height: 100%;
+  overflow: auto;
+  font-family: 'Roboto', sans-serif;
+  color: white;
+}
+
+.sidebar .linkStyle {
+  display: block;
+  color: white;
+  padding: 16px;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+
+.sidebar .linkStyle:hover:not(.active) {
+  background-color:#2D524A;
+  color: white;
+  text-decoration: none;
+}
+
+div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
+}
+
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar .linkStyle {float: left;}
+  div.content {margin-left: 0;}
+}
+
+@media screen and (max-width: 400px) {
+  .sidebar .linkStyle {
+    text-align: center;
+    float: none;
+  }
+}

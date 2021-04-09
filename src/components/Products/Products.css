@@ -1,0 +1,38 @@
+.display {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+  }
+  .card-img-block {
+    margin: 0 auto;
+    position: relative;
+  }
+  .card-img-block img {
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.63);
+  }
+.btn-style{
+    border: none;
+    color: white;
+    background-color: #71BA58;
+    padding: 5px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+.btn-style:focus, .btn-style:hover, .btn-style:visited, .btn-style:link, .btn-style:active {
+  text-decoration: none;
+  color: white;
+}
+
+
+  @media only screen and (max-width: 500px) {
+    .display {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+  @media only screen and (max-width: 800px) and (min-width:500px) {
+    .display {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
