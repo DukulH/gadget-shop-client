@@ -12,7 +12,7 @@ const Products = () => {
     
 
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch('https://peaceful-caverns-10638.herokuapp.com/products')
             .then(response => response.json())
             .then(data => setProducts(data))
     }, [])

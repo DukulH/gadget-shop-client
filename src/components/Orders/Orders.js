@@ -10,7 +10,7 @@ const Orders = () => {
     const [orders, setOrders] = useState([]);
     let i=1;
     useEffect(() => {
-        fetch('http://localhost:5000/orders?email=' + loggedInUser.email)
+        fetch('https://peaceful-caverns-10638.herokuapp.com/orders?email=' + loggedInUser.email)
             .then(response => response.json())
             .then(data => setOrders(data))
     }, [loggedInUser.email])

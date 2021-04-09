@@ -8,24 +8,23 @@ import { Button } from '@material-ui/core';
 
 const ManageProduct = () => {
     let i = 1;
-
     const [productDetails, setProductDetails] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch('https://peaceful-caverns-10638.herokuapp.com/products')
             .then(response => response.json())
             .then(data => setProductDetails(data))
-    }, [])
+    }, [productDetails])
 
     const handleDeleteProduct = (key) => {
-        fetch(`http://localhost:5000/delete/${key}`, {
+        fetch(`https://peaceful-caverns-10638.herokuapp.com/delete/${key}`, {
             method: 'DELETE',
         })
-        .then(response => response.json())
-        .then(result => {
-            if (!alert('Product deleted successfully')) { window.location.reload(); }
-        })
-    } 
+            .then(response => response.json())
+            .then(result => {
+                alert('Product deleted successfully');
+            })
+    }
 
     return (
         <>
@@ -49,10 +48,10 @@ const ManageProduct = () => {
                                 <td>{productDetail.productPrice} /-</td>
                                 <td>
                                     <Button variant="contained" color="primary">
-                                    <FontAwesomeIcon icon={faEdit} />
+                                        <FontAwesomeIcon icon={faEdit} />
                                     </Button>
-                                    <Button className="ml-2" variant="contained" color="secondary" onClick={() =>handleDeleteProduct(productDetail.productKey)}>
-                                    <FontAwesomeIcon icon={faTrashAlt} />
+                                    <Button className="ml-2" variant="contained" color="secondary" onClick={() => handleDeleteProduct(productDetail.productKey)}>
+                                        <FontAwesomeIcon icon={faTrashAlt} />
                                     </Button>
                                 </td>
                             </tr>

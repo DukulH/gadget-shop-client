@@ -1,13 +1,15 @@
 import { faCloudUploadAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from "react-hook-form";
+import { useHistory } from 'react-router';
 import SideBar from '../SideBar/SideBar';
 import './AddProduct.css';
 
 const AddProduct = () => {
-    const { register, handleSubmit,} = useForm();
+    let history = useHistory();
+    const { register, handleSubmit, } = useForm();
     const onSubmit = data => {
         const productData = {
             productName: data.pdName,
@@ -15,7 +17,7 @@ const AddProduct = () => {
             productPrice: data.pdPrice,
             productImageURL: imageURL,
         }
-        fetch('http://localhost:5000/addProduct', {
+        fetch('https://peaceful-caverns-10638.herokuapp.com/addProduct', {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json'
@@ -25,10 +27,12 @@ const AddProduct = () => {
             .then(response => response.json())
             .then(data => {
                 if (data) {
-                    if (!alert('Product added successfully')) { window.location.reload(); }
+                    alert('Product added successfully');
+                    document.getElementById("resetForm").reset();
                 }
-                else{
-                    if (!alert('Product added failed!! \r\n check productKey, imageFile properly')) { window.location.reload(); }
+                else {
+                    alert('Product added failed!! \r\nCheck productKey, imageFile properly');
+                    history.push('/addProduct')
                 }
             })
     }
@@ -56,7 +60,7 @@ const AddProduct = () => {
                 <div className="pt-3 border-bottom">
                     <h3>Add Product</h3>
                 </div>
-                <form className="form-container" action="" onSubmit={handleSubmit(onSubmit)}>
+                <form className="form-container" id='resetForm' action="" onSubmit={handleSubmit(onSubmit)}>
                     <div className="form-group pt-5 ">
                         <div className="row">
                             <div className="col">
@@ -77,9 +81,9 @@ const AddProduct = () => {
                             </div>
                             <div className="col uploadBtnWrap pb-5">
                                 <strong>Add Photo</strong>
-                                <br/>
+                                <br />
                                 <label htmlFor="InputFile" className="custom-file-upload"><FontAwesomeIcon icon={faCloudUploadAlt} className="mr-2" /> Upload photo</label>
-                                <input type="file" onChange={handleUploadImg} id="InputFile" name="pdImg"/>
+                                <input type="file" onChange={handleUploadImg} id="InputFile" name="pdImg" />
                             </div>
                         </div>
                     </div>

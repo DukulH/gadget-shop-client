@@ -15,7 +15,7 @@ const OrderProcess = () => {
     let i = 1;
     let history = useHistory();
     useEffect(() => {
-        fetch(`http://localhost:5000/orderProcess/${key}`)
+        fetch(`https://peaceful-caverns-10638.herokuapp.com/orderProcess/${key}`)
             .then(response => response.json())
             .then(data => setProduct(data[0]))
 
@@ -23,7 +23,7 @@ const OrderProcess = () => {
 
     const handlePlaceOrder = () => {
         const orderDetails = {...loggedInUser, productName: product.productName , productPrice: product.productPrice , productImageURL: product.productImageURL, productKey: product.productKey, orderPlaced: new Date()}
-        fetch('http://localhost:5000/placeOrder', {
+        fetch('https://peaceful-caverns-10638.herokuapp.com/placeOrder', {
             method: 'POST',
             headers: {
                 'Content-type':'application/json'
